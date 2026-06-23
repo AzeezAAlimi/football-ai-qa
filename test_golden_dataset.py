@@ -267,3 +267,20 @@ def test_golden_dataset_local(entry):
     assert_test(entry["test_case"], [relevancy_metric, faithfulness_metric])
 
 # --- TEST VARIANT 2: Smoke check that executes everywhere (including GitHub CI) ---
+def test_golden_dataset_smoke():
+    """
+    Smoke test — runs in CI and locally.
+    Validates dataset structure without LLM evaluation.
+    """
+    assert len(GOLDEN_DATASET) == 20, "Golden dataset must have 20 test cases"
+
+    for entry in GOLDEN_DATASET:
+        assert "id" in entry, f"Missing id in entry"
+        assert "category" in entry, f"Missing category in {entry.get('id')}"
+        assert "test_case" in entry, f"Missing test_case in {entry.get('id')}"
+        assert "min_relevancy" in entry, f"Missing min_relevancy in {entry.get('id')}"
+        assert "min_faithfulness" in entry, f"Missing min_faithfulness in {entry.get('id')}"
+        assert entry["min_relevancy"] >= 0.8, f"{entry['id']}: relevancy threshold too low"
+        assert entry["min_faithfulness"] >= 0.9, f"{entry['id']}: faithfulness threshold too low"
+
+    print(f"✅ Smoke test passed — {len(GOLDEN_DATASET)} test cases validated")
