@@ -272,7 +272,7 @@ def test_golden_dataset_smoke():
     Smoke test — runs in CI and locally.
     Validates dataset structure without LLM evaluation.
     """
-    assert len(GOLDEN_DATASET) == 20, "Golden dataset must have 20 test cases"
+    assert len(GOLDEN_DATASET) == 25, "Golden dataset must have 20 test cases"
 
     for entry in GOLDEN_DATASET:
         assert "id" in entry, f"Missing id in entry"
