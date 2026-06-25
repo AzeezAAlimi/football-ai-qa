@@ -284,3 +284,20 @@ def test_golden_dataset_smoke():
         assert entry["min_faithfulness"] >= 0.9, f"{entry['id']}: faithfulness threshold too low"
 
     print(f"✅ Smoke test passed — {len(GOLDEN_DATASET)} test cases validated")
+
+def test_quality_gate_thresholds():
+    """
+    Validates that all quality gate thresholds
+    meet minimum enterprise standards.
+    Fails if any threshold is set too low.
+    """
+    MINIMUM_RELEVANCY_THRESHOLD = 0.8
+    MINIMUM_FAITHFULNESS_THRESHOLD = 0.9
+
+    for entry in GOLDEN_DATASET:
+        assert entry["min_relevancy"] >= MINIMUM_RELEVANCY_THRESHOLD, \
+            f"{entry['id']}: relevancy threshold {entry['min_relevancy' ]} below minimum {MINIMUM_RELEVANCY_THRESHOLD}"
+        assert entry["min_faithfulness"] >= MINIMUM_FAITHFULNESS_THRESHOLD, \
+            f"{entry['id']}: faithfulness threshold {entry['min_faithfulness']} below minimum {MINIMUM_FAITHFULNESS_THRESHOLD}"
+
+    print(f"✅ Quality gate thresholds validated across {len(GOLDEN_DATASET)} test cases")
