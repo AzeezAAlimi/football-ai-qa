@@ -1,2 +1,3 @@
 deepeval
-pytestollama
+pytest
+ollama
