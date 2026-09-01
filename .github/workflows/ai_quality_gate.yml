@@ -23,7 +23,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Validate AI test suite structure
-        run: pytest test_golden_dataset.py -v -k "smoke"
+        run: pytest test_golden_dataset1.py -v -k "smoke"
 
       - name: Display quality gate status
         run: |
