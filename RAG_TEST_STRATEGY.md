@@ -1,4 +1,4 @@
-# RAG Test Strategy — Football AI Assistant
+nst# RAG Test Strategy — Football AI Assistant
 
 ## System Overview
 This project tests a RAG-based football AI assistant that answers 
@@ -36,7 +36,7 @@ an LLM.
 | Pass rate | 100% |
 
 ## Known Limitations
-- Judge model is llama3 (local) — a stronger judge like GPT-4 
+- Judge model is qwen3:14b (local) — a stronger judge like GPT-4 
   would produce more reliable scores
 - Edge case refusals are not reliably evaluated by llama3
 - No live retriever connected — retrieval_context is manually 

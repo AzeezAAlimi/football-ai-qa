@@ -3,7 +3,7 @@ from deepeval.test_case import LLMTestCase
 from deepeval.metrics import AnswerRelevancyMetric, FaithfulnessMetric, ContextualRelevancyMetric
 from deepeval.models import OllamaModel
 
-local_judge = OllamaModel(model="llama3:latest")
+local_judge = OllamaModel(model="qwen3:14b")
 
 relevancy_metric = AnswerRelevancyMetric(
     threshold=0.8,

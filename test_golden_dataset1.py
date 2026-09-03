@@ -5,7 +5,7 @@ from deepeval.test_case import LLMTestCase, SingleTurnParams
 from deepeval.metrics import AnswerRelevancyMetric, FaithfulnessMetric, GEval
 from deepeval.models import OllamaModel
 
-local_judge = OllamaModel(model="llama3:latest")
+local_judge = OllamaModel(model="qwen3:14b")
 
 refusal_metric = GEval(
     name="Correct Refusal",
