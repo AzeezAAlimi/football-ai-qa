@@ -8,7 +8,7 @@ from deepeval.models import OllamaModel
 from football_agent import create_football_agent
 
 # Set up the judge
-local_judge = OllamaModel(model="llama3:latest")
+local_judge = OllamaModel(model="qwen3:14b")
 relevancy_metric = AnswerRelevancyMetric(threshold=0.8, model=local_judge)
 faithfulness_metric = FaithfulnessMetric(threshold=0.9, model=local_judge)
 
